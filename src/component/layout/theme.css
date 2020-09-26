@@ -18,7 +18,7 @@ body {
 }
 
 #page-wrapper {
-	margin: 0 0 0 260px;
+	margin: 0 0 0 300px;
 	padding: 15px 30px;
 }
 
@@ -79,7 +79,7 @@ p {
 .navbar-side {
 	z-index: 1;
 	position: fixed;
-	width: 260px;
+	width: 300px;
 	top: 60px;
 	bottom: 0;
 	overflow-y: auto;
@@ -390,7 +390,7 @@ footer p {
 
 .top-navbar .navbar-brand {
 	color: #fff;
-	width: 260px;
+	width: 300px;
 	text-align: left;
 	height: 60px;
 	font-size: 30px;
@@ -401,6 +401,7 @@ footer p {
 }
 
 .navbar-brand b {
+	margin-right: 5px;
 	color: #2DAFCB;
 }
 
@@ -408,7 +409,7 @@ footer p {
 	position: relative;
 	display: inline-block;
 	margin: 0px;
-	padding: 0px;
+	padding: 0px 10px;
 }
 
 .top-navbar .nav > li > a {
@@ -425,8 +426,14 @@ footer p {
 	background: transparent;
 }
 
+
+.top-navbar .nav > li:hover .dropdown-menu{
+	display: block;
+}
+
 .top-navbar .dropdown-menu {
 	min-width: 230px;
+	top: 96%;
 	border-radius: 0 0 4px 4px;
 }
 
@@ -534,6 +541,10 @@ ul.nav.nav-second-level.collapse.in {
 
 .top-navbar .nav > li > a > i {
 	margin-right: 2px;
+}
+.top-navbar .nav > li > a  > span {
+	color: #666;
+	margin-right: 5px;
 }
 
 .top-navbar .navbar-brand:hover {
