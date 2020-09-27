@@ -72,7 +72,7 @@ class SideNav extends Component {
             if(i==index){
                 v.isActive=!v.isActive;
             }else{
-                v.isActive=false;
+                // v.isActive=false;
             }
             return v
         })
