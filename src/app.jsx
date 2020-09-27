@@ -13,7 +13,8 @@ class App extends Component {
                 <Layout>
                     <Switch>
                         <Route path='/' component={Home}/>
-                        <Redirect from="*" to="/"/>
+                        <Route path='/product' component={Home}/>
+                        <Route path='/product-category' component={Home}/>
                     </Switch>
                 </Layout>
                 
