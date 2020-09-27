@@ -19,7 +19,8 @@ module.exports = {
   plugins: [
     // 处理HTML文件
     new HtmlWebpackPlugin({
-      template:'./src/index.html'
+      template:'./src/index.html',
+      favicon:'./favicon-temp.ico'
     }),
     // 提出css文件
     new ExtractTextPlugin("css/[name].css"),
