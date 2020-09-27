@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PageTitle from 'component/page-title/index.jsx'
 
 import 'page/home/index.css'
 class Home extends Component {
@@ -13,7 +14,14 @@ class Home extends Component {
     render() {
         return (
             <div id="page-wrapper">
-                <button className="btn btn-defalut">test2</button>
+                <PageTitle title="首页">
+                    <button className="btn btn-warning">error</button>
+                </PageTitle>
+                <div className="row">
+                    <div className="col-md-12">
+                        body
+                    </div>
+                </div>
             </div>
         )
     }
