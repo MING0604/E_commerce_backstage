@@ -11,6 +11,7 @@ class User{
             data:data
         })
     }
+
     // 检查登陆接口的数据是否合法
     checkLoginInfo(loginInfo){  
         let username = loginInfo.username.trim()
@@ -33,6 +34,13 @@ class User{
             status:true,
             msg:'验证通过'
         }
+    }
+    // 用户退出登录
+    logout(){
+        return _mm.request({
+            type:'post',
+            url:'/user/logout.do'
+        })
     }
 }
 export default User

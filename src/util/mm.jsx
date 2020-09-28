@@ -42,5 +42,34 @@ class MUtil{
     errorTips(errMsg){
         alert(errMsg||'好像哪里不对了')
     }
+    // 设置本地存储
+    setStorage(name,data){
+        let dataType = typeof data
+        // json对象
+        if(dataType === 'object'){
+            window.localStorage.setItem(name,JSON.stringify(data));
+        }
+        // 基础类型
+        else if(['number','string','boelean'].indexOf(dataType)>=0){
+            window.localStorage.setItem(name,data);
+        }
+        // 其他不支持类型
+        else{
+            console.log('error：该类型不能用于本地存储')
+        }
+    }
+    // 获得本地存储
+    getStorage(name){
+        let data = window.localStorage.getItem(name)
+        if(data){
+            return JSON.parse(data)
+        }else{
+            return ''
+        }
+    }
+    // 删除本地存储项
+    removeStorage(name){
+        window.localStorage.removeItem(name)
+    }
 }
 export default MUtil
