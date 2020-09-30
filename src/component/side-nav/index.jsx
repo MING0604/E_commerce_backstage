@@ -20,7 +20,7 @@ class SideNav extends Component {
                     name:'商品',
                     url:'/product',
                     isExact:false,
-                    iconClass:'fa fa-sitemap',
+                    iconClass:'fa fa-list',
                     hasChild:true,
                     isActive:false,
                     children:[
@@ -38,7 +38,7 @@ class SideNav extends Component {
                     name:'订单',
                     url:'/order',
                     isExact:false,
-                    iconClass:'fa fa-sitemap',
+                    iconClass:'fa fa-check-square-o',
                     hasChild:true,
                     isActive:false,
                     children:[
@@ -52,7 +52,7 @@ class SideNav extends Component {
                     name:'用户',
                     url:'/user',
                     isExact:false,
-                    iconClass:'fa fa-sitemap',
+                    iconClass:'fa fa-user-o',
                     hasChild:true,
                     isActive:false,
                     children:[

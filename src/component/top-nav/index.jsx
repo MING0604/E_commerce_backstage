@@ -17,7 +17,7 @@ class TopNav extends Component {
     onLogout(){
         _user.logout().then(res=>{
             _mm.removeStorage('userInfo')
-            window.location.reload()
+            _mm.doLogin()
         },errMsg=>{
             _mm.errorTips(errMsg)
         })
