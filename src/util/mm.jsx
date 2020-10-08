@@ -20,6 +20,8 @@ class MUtil{
                 // 错误
                 else if(res.data.status===1){
                     typeof reject === 'function' && reject(res.data.msg || res.data.data)
+                }else if(res.data.status===2){
+                    typeof reject === 'function' && reject('接口失效')
                 }
             })
             .catch(err=>{
@@ -29,18 +31,22 @@ class MUtil{
     }
     // 跳转登陆
     doLogin(){
-        window.location.href = '/login?redirect=' + encodeURIComponent(window.location.pathname);
+        window.location.href = '/login?redirect=' + window.location.pathname;
     }
     // 获取URL参数
     getUrlParams(name){
         let queryString = window.location.search.split('?')[1] || '',
             reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"),
             result = queryString.match(reg)
-        return result ? encodeURIComponent(result[2]) : null
+        return result ? result[2] : null
     }
     // 错误提示
     errorTips(errMsg){
         alert(errMsg||'好像哪里不对了')
+    }
+    // 成功提示
+    successTips(successMsg){
+        alert(successMsg||'操作成功')
     }
     // 设置本地存储
     setStorage(name,data){

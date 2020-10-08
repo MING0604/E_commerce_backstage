@@ -3,19 +3,19 @@ import User from 'service/user-service.jsx'
 import Mutil from 'util/mm.jsx'
 
 import Pagination from 'util/pagination/index.jsx';
+import TableList from 'util/table-list/index.jsx';
 import PageTitle from 'component/page-title/index.jsx'
 
 const _mm = new Mutil()
 const _user = new User()
 
-class Error extends Component {
+class UserList extends Component {
     constructor(props) {
         super(props)
 
         this.state = {
             list:[],
-            pageNum:1,
-            firstLoading:true
+            pageNum:1
         }
     }
     componentDidMount(){
@@ -23,11 +23,7 @@ class Error extends Component {
     }
     loaderList(){
         _user.getUserList(this.state.pageNum).then(res=>{
-            this.setState(res,()=>{
-                this.setState({
-                    firstLoading:false
-                })
-            })
+            this.setState(res)
         },errMsg=>{
             this.setState({
                 list:[]
@@ -55,36 +51,12 @@ class Error extends Component {
                 </tr>
             )
         });
-        let listError =(
-            <tr>
-                <td colSpan="5" className="text-center">{this.state.firstLoading?"正在加载数据...":"没有找到相应结果"}</td>
-            </tr>
-        )
-        let tableBody = this.state.list.length>0? listBody:listError
         return (
             <div id="page-wrapper">
                 <PageTitle title='用户列表'>
-                    <div className="row">
-                        <div className="col-md-12">
-                            <table className="table table-striped table-bordered">
-                                <thead>
-                                    <tr>
-                                        <th>ID</th>
-                                        <th>用户名</th>
-                                        <th>邮箱</th>
-                                        <th>电话</th>
-                                        <th>注册时间</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {
-                                        tableBody
-                                    }
-                                    
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
+                    <TableList tableHeads={['ID','用户名','邮箱','电话','注册时间']}>
+                        {listBody}
+                    </TableList>
                     <Pagination current={this.state.pageNum} 
                                 total={this.state.total} 
                                 onChange={(pageNum)=>this.pageNumChange(pageNum)}/>
@@ -94,4 +66,4 @@ class Error extends Component {
     }
 }
 
-export default Error
+export default UserList
